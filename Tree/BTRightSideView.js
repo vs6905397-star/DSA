@@ -1,4 +1,4 @@
-//question: https://leetcode.com/problems/binary-tree-level-order-traversal/
+//question: https://leetcode.com/problems/binary-tree-right-side-view/
 
 
 /**
@@ -11,33 +11,29 @@
  */
 /**
  * @param {TreeNode} root
- * @return {number[][]}
+ * @return {number[]}
  */
-var levelOrder = function(root) {
-    if(root === null){
-        return [];
-    }
+var rightSideView = function(root) {
+    if(root === null) return [];
 
-    let result = [];
     let queue = [root];
     let front = 0;
+    let result = [];
 
     while(front < queue.length){
-        let size = queue.length;
         let level = [];
+        let size = queue.length - front;
 
         for(let i=0; i<size; i++){
             let node = queue[front++];
+
             level.push(node.val);
 
-            if(node.left){
-                queue.push(node.left);
-            }
-            if(node.right){
-                queue.push(node.right);
-            }
+            if(node.left) queue.push(node.left);
+            if(node.right) queue.push(node.right);
+
         }
-        result.push(level);
+        result.push(level[level.length-1]);
     }
     return result;
 };
