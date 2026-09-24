@@ -1,4 +1,4 @@
-//question: https://leetcode.com/problems/valid-parentheses/submissions/2115807930/
+ //question: https://leetcode.com/problems/valid-parentheses/submissions/2115807930/
 
 function validParentheses(str){
 
